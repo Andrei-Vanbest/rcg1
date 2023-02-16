@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
@@ -26,14 +26,27 @@ const DUMMY_EXPENSES = [
 ];
 
 const App = () => {
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  
+  const [expenses, setExpenses] = useState( JSON.parse(localStorage.getItem("list")) || [])
+  const [filteredYear, setFilteredYear] = useState('2022')
+
+  const filteredExpenses = expenses.filter((expense) => {
+    return new Date(expense.date).getFullYear().toString() === filteredYear
+  });
+
+
+  
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };
+  useEffect(()=>{
+    localStorage.setItem("list", JSON.stringify(expenses))
+  },[expenses])
 
+ 
   // return React.createElement(
   //   'div',
   //   {},
@@ -44,7 +57,10 @@ const App = () => {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses filteredExpenses={filteredExpenses}
+                 filteredYear={filteredYear}
+                 setFilteredYear={setFilteredYear} />
+                 
     </div>
   );
 };
