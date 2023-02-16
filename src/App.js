@@ -3,7 +3,7 @@ import React, { useState,useEffect } from 'react';
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 
-const DUMMY_EXPENSES = [
+/*const DUMMY_EXPENSES = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -23,7 +23,7 @@ const DUMMY_EXPENSES = [
     amount: 450,
     date: new Date(2021, 5, 12),
   },
-];
+];*/
 
 const App = () => {
   
