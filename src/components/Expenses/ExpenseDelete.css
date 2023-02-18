@@ -1,0 +1,9 @@
+.new-expense__actions1 {
+    text-align: center;
+    background-color:aqua;
+    margin-left: 10px;
+    height: 20px;
+    width:90px;
+    border-radius: 15px;
+    border: 2px solid black
+  }

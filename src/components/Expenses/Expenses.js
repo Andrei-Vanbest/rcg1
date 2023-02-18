@@ -6,7 +6,7 @@ import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
-const Expenses = ({filteredExpenses,setFilteredYear},{filteredYear}) => {
+const Expenses = ({filteredExpenses},{setFilteredYear},{filteredYear}) => {
   //const [filteredYear, setFilteredYear] = useState('2021');
 
   const filterChangeHandler = (selectedYear) => {
