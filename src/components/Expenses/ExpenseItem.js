@@ -17,8 +17,14 @@ const ExpenseItem = (props) => {
         </div>
         
         
-        <ExpenseDelete />
-        
+        <ExpenseDelete id= {props.id} 
+                       
+                       items={props.items}
+                       expense={props.expense}
+                       handleDelete ={props.handleDelete}
+                       setExpenses={props.setExpenses}
+          
+                       />
       </Card>
     </li>
   );

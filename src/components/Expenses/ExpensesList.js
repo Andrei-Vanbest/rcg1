@@ -5,7 +5,7 @@ import './ExpensesList.css';
 
 const ExpensesList = (props) => {
 
-
+  //const[del,setDel] = useState(props.items)
 
 
   if (props.items.length === 0) {
@@ -13,8 +13,15 @@ const ExpensesList = (props) => {
 
   }
 
-  
+ const handleDelete =(id)=>{
+   props.setExpenses(props.items.filter(ex=>ex.id !==id))
+
+ }
+ console.log(props.items)  
+   
+
   return (
+    
      <ul className='expenses-list'>
     {props.items.map((expense) => (
         <ExpenseItem
@@ -23,11 +30,18 @@ const ExpensesList = (props) => {
           amount={expense.amount}
           date={expense.date}
           
+          id={expense.id}
+          expense={expense}
+          items={props.items}
+          handleDelete={handleDelete}
+          expenses={props.expenses}
+          setExpenses={props.setExpenses}
           
+          />
           
-        />
       ))}
     </ul>
+    
   );
 };
 
